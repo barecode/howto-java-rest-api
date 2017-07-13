@@ -1,0 +1,11 @@
+<server description="howto-java-rest-api">
+
+	<!-- Enable features -->
+	<featureManager>
+		<feature>apiDiscovery-1.0</feature>
+		<feature>jaxrs-2.0</feature>
+	</featureManager>
+
+	<webApplication location="howto-java-rest-api.war" />
+
+</server>
