@@ -1,8 +1,115 @@
 <!doctype html>
 <html>
 <head>
+<script>
+function get_rest(url, result_id) {
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			document.getElementById(result_id).innerHTML = xhr.responseText
+		}
+	};
+	xhr.open('GET', url);
+	xhr.send();
+}
+
+function get_rest_withQueryParam(url, input_id, result_id) {
+	var input_value = document.getElementById(input_id).value;
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			document.getElementById(result_id).innerHTML = xhr.responseText
+		}
+	};
+	xhr.open('GET', url+'?name='+input_value);
+	xhr.send();
+}
+
+function get_rest_withPathParam(url, input_id, result_id) {
+	var input_value = document.getElementById(input_id).value;
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			document.getElementById(result_id).innerHTML = xhr.responseText
+		}
+	};
+	xhr.open('GET', url+'/'+input_value);
+	xhr.send();
+}
+
+function post_rest(url, input_id, result_id) {
+	var input_value = document.getElementById(input_id).value;
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 204) {
+			document.getElementById(result_id).innerHTML = "posted!";
+		}
+	};
+	xhr.open('POST', url);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.send('{"payload":"'+input_value+'"}');
+}
+
+</script>
 </head>
 <body>
 <h3>Simple REST API Demo</h3>
+
+<div>
+<p>
+Simple text/plain "Hello, world"<br/>
+<button type="button" onclick="get_rest('/howto-java-rest-api/rest', 'rest-result')">GET /rest</button> Result: <span id="rest-result"></span>
+</p>
+</div>
+
+<div>
+<p>
+Input text/plain "Hello, <i>input</i>"<br/>
+<button type="button" onclick="get_rest_withQueryParam('/howto-java-rest-api/rest', 'rest-input', 'rest-input-result')">GET /rest?name=</button><input id="rest-input" />Result: <span id="rest-input-result"></span>
+</p>
+</div>
+
+<div>
+<p>
+Simple application/json "Hello, world"<br/>
+<button type="button" onclick="get_rest('/howto-java-rest-api/rest/json', 'rest-json-result')">GET /rest/json</button> Result: <span id="rest-json-result"></span>
+</p>
+</div>
+
+<div>
+<p>
+Input application/json "Hello, <i>input</i>"<br/>
+<button type="button" onclick="get_rest_withQueryParam('/howto-java-rest-api/rest/json', 'rest-json-input', 'rest-json-input-result')">GET /rest/json?name=</button><input id="rest-json-input" />Result: <span id="rest-json-input-result"></span>
+</p>
+</div>
+
+<div>
+<p>
+GET application/json Time POJO<br/>
+<button type="button" onclick="get_rest('/howto-java-rest-api/rest/time', 'rest-time-result')">GET /rest/time</button> Result: <span id="rest-time-result"></span>
+</p>
+</div>
+
+<div>
+<p>
+GET application/json Time POJO with path qualifier<br/>
+<button type="button" onclick="get_rest_withPathParam('/howto-java-rest-api/rest/time', 'rest-time-input', 'rest-time-input-result')">GET /rest/time/{qualifier}</button><input id="rest-time-input" />Result: <span id="rest-time-input-result"></span>
+</p>
+</div>
+
+<div>
+<p>
+GET application/json Payload POJO<br/>
+<button type="button" onclick="get_rest('/howto-java-rest-api/rest/payload', 'rest-payload-result')">GET /rest/payload</button> Result: <span id="rest-payload-result"></span>
+</p>
+</div>
+
+<div>
+<p>
+POST application/json Payload POJO<br/>
+<button type="button" onclick="post_rest('/howto-java-rest-api/rest/payload', 'rest-payload-input', 'rest-payload-input-result')">GET /rest/payload</button><input id="rest-payload-input" />Result: <span id="rest-payload-input-result"></span>
+</p>
+</div>
+
 </body>
 </html>

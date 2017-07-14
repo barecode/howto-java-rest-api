@@ -100,7 +100,7 @@ public class RESTAPI {
 	 * @param payload The new PayloadPOJO
 	 */
 	@POST
-	@Path("json")
+	@Path("payload")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void setPayload(PayloadPOJO payload) {
 		RESTAPI.payload = payload;
