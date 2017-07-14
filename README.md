@@ -45,21 +45,23 @@ This guide presumes knowledge on install and use of the following:
 
 # Defined REST APIs
 
-URL: `http://localhost:9080/howto-java-rest-api/rest(?name=bob)`
+GET: `http://localhost:9080/howto-java-rest-api/rest(?name=bob)`
 Returns: `Hello, bob`
 
-URL: `http://localhost:9080/howto-java-rest-api/rest/json`
-Returns: `{"hello":"world"}`
+GET: `http://localhost:9080/howto-java-rest-api/rest/json(?name=bob)`
+Returns: `{"hello":"bob"}`
 
-URL: `http://localhost:9080/howto-java-rest-api/rest/time`
+GET: `http://localhost:9080/howto-java-rest-api/rest/time`
 Returns: `{"qualifier":"default","time":"Thu Jul 13 10:40:45 CDT 2017"}`
 
-URL: `http://localhost:9080/howto-java-rest-api/rest/time/mike`
+GET: `http://localhost:9080/howto-java-rest-api/rest/time/mike`
 Returns: `{"qualifier":"mike","time":"Thu Jul 13 10:41:09 CDT 2017"}`
 
-URL: `http://localhost:9080/howto-java-rest-api/rest/payload`
+GET: `http://localhost:9080/howto-java-rest-api/rest/payload`
 Returns: `{ }`
 
+POST: `http://localhost:9080/howto-java-rest-api/rest/payload`
+Payload: `{"payload":"bob"}`
 
 
 # Import into Eclipse
