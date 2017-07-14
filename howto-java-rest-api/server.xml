@@ -4,6 +4,11 @@
 	<featureManager>
 		<feature>apiDiscovery-1.0</feature>
 		<feature>jaxrs-2.0</feature>
+		<feature>transportSecurity-1.0</feature>
 	</featureManager>
+
+	<!-- Default security configuration - never, ever use these values in the real world! -->
+	<quickStartSecurity userName="admin" userPassword="adminpwd" />
+	<keyStore id="defaultKeyStore" password="Liberty" />
 
 </server>

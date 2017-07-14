@@ -40,8 +40,12 @@ This guide presumes knowledge on install and use of the following:
 
 
 # Play with it!
-`http://localhost:9080/howto-java-rest-api/`
 
+You can access the demo page: `http://localhost:9080/howto-java-rest-api/`
+
+Alternatively, you can access the REST APIs directly: `http://localhost:9080/howto-java-rest-api/rest`
+
+Lastly, you can try the REST API explorer: `https://localhost:9443/ibm/api/explorer/`
 
 # Defined REST APIs
 
