@@ -16,7 +16,7 @@ public class RESTAPI {
 ```
 
 
-# Prerequisite
+## Prerequisite
 
 This guide presumes knowledge on install and use of the following:
 * Gradle
@@ -25,7 +25,7 @@ This guide presumes knowledge on install and use of the following:
 * WebSphere Developer Tools (WDT)
 
 
-# Build and Deploy
+## Build and Deploy
 
 * Step 1 - Build the WAR
   * Run `gradle` to build the WAR in `build/libs/howto-java-rest-api.war`
@@ -39,7 +39,7 @@ This guide presumes knowledge on install and use of the following:
   * `mv build/libs/howto-java-rest-api.war wlp_user_dir/servers/howto-java-rest-api/dropins`
 
 
-# Play with it!
+## Play with it!
 
 You can access the demo page: `http://localhost:9080/howto-java-rest-api/`
 
@@ -47,7 +47,7 @@ Alternatively, you can access the REST APIs directly: `http://localhost:9080/how
 
 Lastly, you can try the REST API explorer: `https://localhost:9443/ibm/api/explorer/`
 
-# Defined REST APIs
+## Defined REST APIs
 
 GET: `http://localhost:9080/howto-java-rest-api/rest(?name=bob)`
 Returns: `Hello, bob`
@@ -68,7 +68,7 @@ POST: `http://localhost:9080/howto-java-rest-api/rest/payload`
 Payload: `{"payload":"bob"}`
 
 
-# Import into Eclipse
+## Import into Eclipse
 
 The following are high-level instructions for importing this project into Eclipse
 
